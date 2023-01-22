@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
 import Actors from './pages/Actors'
 import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
@@ -11,17 +12,9 @@ import Profile from './pages/Profile'
 const App = () => {
   return (
     <>
-      <Navbar />
-      <main className='text-3xl font-bold'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='movies' element={<Movies />} />
-          <Route path='movies/:movieId' element={<MovieInfo />} />
-          <Route path='actors' element={<Actors />} />
-          <Route path='profile/:profileId' element={<Profile />} />
-          <Route path='*' element={<ErrorPage />} />
-        </Routes>
-      </main>
+      <div className='grid'>
+        <Sidebar />
+      </div>
     </>
   )
 }

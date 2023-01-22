@@ -1,11 +1,12 @@
 import React from 'react'
 import { CgProfile } from 'react-icons/cg'
 import { AiOutlineMenu } from 'react-icons/ai'
+import Sidebar from './Sidebar'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className='bg-gray-900 h-14 w-full flex items-center justify-around'>
-      <AiOutlineMenu className='sm:hidden text-white text-lg sm:text-xl' />
+    <nav className='bg-gray-900 h-14 w-full flex items-center justify-between pr-5 col-span-4'>
       <input
         type='text'
         placeholder='Search'
