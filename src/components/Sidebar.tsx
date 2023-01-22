@@ -64,7 +64,7 @@ const Sidebar = () => {
           htmlFor='sidebar'
           className='btn btn-primary drawer-button lg:hidden'
         >
-          <div className='sm:hidden inline-block'>
+          <div className='hidden'>
             <AiOutlineMenu className='text-white text-lg sm:text-xl' />
           </div>
         </label>
