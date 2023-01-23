@@ -50,7 +50,7 @@ const Sidebar = () => {
       <div className='drawer-content flex flex-col items-center'>
         {/* <!-- Page content here --> */}
         <Navbar />
-        <main className='text-3xl font-bold sm:ml-72'>
+        <main className='text-3xl font-bold sm:ml-72 h-screen w-screen'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='movies' element={<Movies />} />
