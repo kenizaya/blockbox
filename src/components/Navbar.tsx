@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+const categories = [
+  { label: 'Popular', value: 'popular' },
+  { label: 'Top Rated', value: 'top_rated' },
+  { label: 'Upcoming', value: 'upcoming' },
+]
+
 const Navbar = () => {
   const isAuthenticated = true
   return (
     <div className='navbar flex gap-6 bg-neutral-focus text-neutral-content'>
-      <div className='flex-1 px-5 lg:flex-none'>
+      <div className='px-5 flex-none'>
         <Link to='/' className='text-3xl font-semibold'>
           BlockBox
         </Link>
@@ -20,12 +26,11 @@ const Navbar = () => {
               tabIndex={0}
               className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
+              {categories.map(({ label, value }, index) => (
+                <li key={index} className='text-gray-900'>
+                  <Link to={value}>{label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className='dropdown dropdown-hover'>
@@ -36,12 +41,11 @@ const Navbar = () => {
               tabIndex={0}
               className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
+              {categories.map(({ label, value }, index) => (
+                <li key={index} className='text-gray-900'>
+                  <Link to={value}>{label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
