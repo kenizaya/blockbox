@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useGetGenresQuery } from '../services/TMDB'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectGenreOrCategory } from '../features/currentGenreOrCategories'
 
 const categories = [
   { label: 'Popular', value: 'popular' },
@@ -10,6 +12,7 @@ const categories = [
 
 const Navbar = () => {
   const { data, isFetching } = useGetGenresQuery()
+  const dispatch = useDispatch()
 
   const isAuthenticated = true
   return (
@@ -30,7 +33,11 @@ const Navbar = () => {
               className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
             >
               {categories.map(({ label, value }, index) => (
-                <li key={index} className='text-gray-900'>
+                <li
+                  onClick={() => dispatch(selectGenreOrCategory(value))}
+                  key={index}
+                  className='text-gray-900'
+                >
                   <Link to={value}>{label}</Link>
                 </li>
               ))}
@@ -61,7 +68,11 @@ const Navbar = () => {
             >
               {!isFetching &&
                 data.genres.map(({ name, id }) => (
-                  <li key={id} className='text-gray-900'>
+                  <li
+                    onClick={() => dispatch(selectGenreOrCategory(id))}
+                    key={id}
+                    className='text-gray-900'
+                  >
                     <Link to={id}>{name}</Link>
                   </li>
                 ))}
