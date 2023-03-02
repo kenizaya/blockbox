@@ -3,7 +3,7 @@ import Movie from './Movie'
 
 const MovieList = ({ movies }) => {
   return (
-    <div className='grid grid-cols-12 overflow-auto'>
+    <div className='grid grid-cols-12'>
       {movies.map((movie, index) => (
         <Movie key={index} index={index} movie={movie} />
       ))}

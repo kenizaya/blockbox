@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <main className='text-3xl font-bold'>
+      <main className='text-3xl font-bold w-[1024px] m-auto'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='movies' element={<Movies />} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useGetGenresQuery } from '../services/TMDB'
 
 const categories = [
   { label: 'Popular', value: 'popular' },
@@ -8,6 +9,8 @@ const categories = [
 ]
 
 const Navbar = () => {
+  const { data, isFetching } = useGetGenresQuery()
+
   const isAuthenticated = true
   return (
     <div className='navbar flex gap-6 bg-neutral-focus text-neutral-content'>
@@ -46,6 +49,22 @@ const Navbar = () => {
                   <Link to={value}>{label}</Link>
                 </li>
               ))}
+            </ul>
+          </div>
+          <div className='dropdown dropdown-hover'>
+            <label tabIndex={0} className='btn btn-active text-white m-1'>
+              Genres
+            </label>
+            <ul
+              tabIndex={0}
+              className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
+            >
+              {!isFetching &&
+                data.genres.map(({ name, id }) => (
+                  <li key={id} className='text-gray-900'>
+                    <Link to={id}>{name}</Link>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
