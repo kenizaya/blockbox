@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className='flex items-stretch'>
           <div className='dropdown dropdown-hover'>
             <label tabIndex={0} className='btn btn-active text-white m-1'>
-              Movies
+              <Link to='/movies'>Movies</Link>
             </label>
             <ul
               tabIndex={0}
