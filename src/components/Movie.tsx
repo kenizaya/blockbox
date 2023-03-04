@@ -12,7 +12,7 @@ const Movie = ({ movie, index }) => {
         {movie.poster_path ? (
           <img
             alt={movie.title}
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
             className='rounded h-72 hover:scale-105 ease-in duration-75'
           />
         ) : (

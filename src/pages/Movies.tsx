@@ -6,12 +6,13 @@ import { useGetMoviesQuery } from '../services/TMDB'
 
 const Movies = () => {
   const [page, setPage] = useState(1)
-  const { genreIdOrCategoryName } = useSelector(
+  const { genreIdOrCategoryName, searchQuery } = useSelector(
     (state: any) => state.currentGenreOrCategory
   )
   const { data, error, isFetching } = useGetMoviesQuery({
     genreIdOrCategoryName,
     page,
+    searchQuery,
   })
 
   if (isFetching) return <progress className='progress w-56'></progress>

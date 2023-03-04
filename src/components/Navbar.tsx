@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useGetGenresQuery } from '../services/TMDB'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectGenreOrCategory } from '../features/currentGenreOrCategories'
+import Search from './Search'
 
 const categories = [
   { label: 'Popular', value: 'popular' },
@@ -83,11 +84,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <input
-          type='text'
-          placeholder='Search'
-          className='input input-bordered input-sm w-full max-w-xs text-neutral-focus -mx-96'
-        />
+        <Search />
 
         {!isAuthenticated ? (
           <button onClick={() => {}} className='btn btn-active text-white m-1'>

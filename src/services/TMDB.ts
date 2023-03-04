@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const tmdbKey = import.meta.env.VITE_TMDB_KEY
-const page = 1
 
 export const tmdbApi = createApi({
   reducerPath: 'tmdbApi',
@@ -16,7 +15,13 @@ export const tmdbApi = createApi({
 
     // Get MOVIES by [TYPE]
     getMovies: builder.query({
-      query: ({ genreIdOrCategoryName, page }) => {
+      query: ({ genreIdOrCategoryName, page, searchQuery }) => {
+        // Get Movies by Search
+        if (searchQuery) {
+          console.log(searchQuery)
+          return `/search/movie?query=${searchQuery}&page=${page}&api_key=${tmdbKey}`
+        }
+
         // Get Movies by Category
         if (
           genreIdOrCategoryName &&
