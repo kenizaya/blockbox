@@ -11,10 +11,13 @@ const categories = [
 ]
 
 const Navbar = () => {
+  const { genreIdOrCategoryName } = useSelector(
+    (state: any) => state.currentGenreOrCategory
+  )
   const { data, isFetching } = useGetGenresQuery()
   const dispatch = useDispatch()
-
   const isAuthenticated = true
+
   return (
     <div className='navbar flex gap-6 bg-neutral-focus text-neutral-content'>
       <div className='px-5 flex-none'>

@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import MovieList from '../components/MovieList'
+import { selectGenreOrCategory } from '../features/currentGenreOrCategories'
 import { useGetMoviesQuery } from '../services/TMDB'
 
 const Movies = () => {
-  const { data, error, isFetching } = useGetMoviesQuery()
+  const [page, setPage] = useState(1)
+  const { genreIdOrCategoryName } = useSelector(
+    (state: any) => state.currentGenreOrCategory
+  )
+  const { data, error, isFetching } = useGetMoviesQuery({
+    genreIdOrCategoryName,
+    page,
+  })
 
   if (isFetching) return <progress className='progress w-56'></progress>
 
