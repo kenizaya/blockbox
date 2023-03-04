@@ -82,6 +82,13 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+
+        <input
+          type='text'
+          placeholder='Search'
+          className='input input-bordered input-sm w-full max-w-xs text-neutral-focus -mx-96'
+        />
+
         {!isAuthenticated ? (
           <button onClick={() => {}} className='btn btn-active text-white m-1'>
             Login
