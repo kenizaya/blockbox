@@ -97,7 +97,7 @@ const Navbar = () => {
               onClick={() => {}}
               className='font-semibold'
             >
-              My Movies
+              My Library
             </Link>
             <div className='avatar'>
               <div className='w-6 rounded-full'>
